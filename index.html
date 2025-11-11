@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>New Buffalo Bee Committee</title>
 
-  <!-- Poppins font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="site-wrapper">
+    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar" aria-label="Main navigation">
       <div class="sidebar-brand">
         <h1>New Buffalo<br><span class="accent">Bee Committee</span></h1>
@@ -26,12 +26,13 @@
 
       <div class="sidebar-footer">
         <small>New Buffalo, MI</small>
-        <button id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileNav">Menu</button>
       </div>
     </aside>
 
+    <!-- Main content -->
     <main class="content" id="main">
-      <!-- Header / decorative images -->
+
+      <!-- Decorative header -->
       <header class="hero">
         <div class="hero-left">
           <img src="images/2eaff628-c44a-4ad6-97ca-9215d16b7b7e.jpg" alt="Header placeholder" class="header-photo" />
@@ -51,7 +52,7 @@
         <p>Welcome to the New Buffalo Bee Committee — a neighborhood group focused on responsible beekeeping, pollinator education, and community support. Explore the site to learn about tools, reading, and how to get involved.</p>
       </section>
 
-      <!-- Community / Comments (interactive) -->
+      <!-- Community Posts -->
       <section id="community" class="card">
         <h2>Community posts</h2>
         <p class="muted">Share photos, ask questions, or post updates. Replies appear under the post.</p>
@@ -72,7 +73,7 @@
         <div id="postsList" class="posts-list" aria-live="polite"></div>
       </section>
 
-      <!-- Contact & Meetings -->
+      <!-- Contact -->
       <section id="contact" class="card">
         <h2>Contact & Meetings</h2>
         <p><strong>Meetings:</strong> Second Tuesday of each month, 6:30 PM — New Buffalo Community Center (check our updates).</p>
@@ -85,6 +86,7 @@
     </main>
   </div>
 
-  <script src="script.js" defer></script>
+  <!-- Firebase-connected script -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
