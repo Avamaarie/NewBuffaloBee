@@ -1,9 +1,10 @@
-// --- script.js ---
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+import { 
+  getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy 
+} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-storage.js";
 
-// Your Firebase config
+// --- Firebase config ---
 const firebaseConfig = {
   apiKey: "AIzaSyC2zXDQMoUZcBj4pG3sfF0uUQRSt7EAbag",
   authDomain: "new-buffalo-bee-committee.firebaseapp.com",
@@ -20,38 +21,23 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 console.log("Firebase connected successfully 🐝");
 
-// DOM elements
+// --- DOM elements ---
 const form = document.getElementById("postForm");
 const postsList = document.getElementById("postsList");
 const imageInput = document.getElementById("postImage");
+const postTextInput = document.getElementById("postText");
 
-// Live Firestore listener
-const postsQuery = query(collection(db, "posts"), orderBy("timestamp", "desc"));
-onSnapshot(postsQuery, (snapshot) => {
-  postsList.innerHTML = "";
-  snapshot.forEach((doc) => {
-    const post = doc.data();
-    const div = document.createElement("div");
-    div.classList.add("post");
-    div.innerHTML = `
-      <div class="meta">${new Date(post.timestamp?.toDate()).toLocaleString()}</div>
-      <p>${post.text}</p>
-      ${post.imageUrl ? `<img src="${post.imageUrl}" class="post-image" alt="Post image" />` : ""}
-    `;
-    postsList.appendChild(div);
-  });
-});
-
-// Handle submit
+// --- Add new post ---
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const text = document.getElementById("postText").value.trim();
+  const text = postTextInput.value.trim();
   const file = imageInput.files[0];
   if (!text && !file) return alert("Please write something or add an image");
 
   let imageUrl = "";
   if (file) {
-    const imageRef = ref(storage, "images/" + file.name);
+    const uniqueName = Date.now() + "_" + file.name;
+    const imageRef = ref(storage, "images/" + uniqueName);
     await uploadBytes(imageRef, file);
     imageUrl = await getDownloadURL(imageRef);
   }
@@ -63,4 +49,60 @@ form.addEventListener("submit", async (e) => {
   });
 
   form.reset();
+});
+
+// --- Render posts & listen for updates ---
+const postsQuery = query(collection(db, "posts"), orderBy("timestamp", "desc"));
+onSnapshot(postsQuery, (snapshot) => {
+  postsList.innerHTML = "";
+
+  snapshot.forEach((doc) => {
+    const post = doc.data();
+    const postId = doc.id;
+
+    // Create post card
+    const div = document.createElement("div");
+    div.classList.add("post-card");
+    div.innerHTML = `
+      <div class="meta">${post.timestamp?.toDate ? new Date(post.timestamp.toDate()).toLocaleString() : ""}</div>
+      <p>${post.text}</p>
+      ${post.imageUrl ? `<img src="${post.imageUrl}" class="post-image" alt="Post image" />` : ""}
+      <div class="replies" id="replies-${postId}"></div>
+      <textarea placeholder="Reply..." class="reply-text" data-post-id="${postId}"></textarea>
+      <button class="btn primary reply-btn" data-post-id="${postId}">Reply</button>
+    `;
+    postsList.appendChild(div);
+
+    // --- Listen for replies on this post ---
+    const repliesDiv = div.querySelector(`#replies-${postId}`);
+    const repliesQuery = collection(db, "posts", postId, "replies");
+    onSnapshot(repliesQuery, (repliesSnapshot) => {
+      repliesDiv.innerHTML = "";
+      repliesSnapshot.forEach(replyDoc => {
+        const reply = replyDoc.data();
+        const replyDiv = document.createElement("div");
+        replyDiv.classList.add("reply-card");
+        replyDiv.innerHTML = `
+          <div class="meta">${reply.timestamp?.toDate ? new Date(reply.timestamp.toDate()).toLocaleString() : ""}</div>
+          <p>${reply.text}</p>
+        `;
+        repliesDiv.appendChild(replyDiv);
+      });
+    });
+  });
+
+  // --- Attach event listeners for reply buttons ---
+  document.querySelectorAll(".reply-btn").forEach((btn) => {
+    btn.onclick = async () => {
+      const postId = btn.dataset.postId;
+      const textarea = document.querySelector(`.reply-text[data-post-id="${postId}"]`);
+      const text = textarea.value.trim();
+      if (!text) return alert("Please write a reply");
+      await addDoc(collection(db, "posts", postId, "replies"), {
+        text,
+        timestamp: serverTimestamp()
+      });
+      textarea.value = "";
+    };
+  });
 });

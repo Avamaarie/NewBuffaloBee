@@ -1,73 +1,80 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>New Buffalo Bee Committee</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>New Buffalo Bee Committee</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <div class="site-wrapper">
-    
-    <!-- Sidebar -->
-    <nav class="sidebar">
-      <div class="sidebar-brand">
-        <h1>New Buffalo Bee Committee</h1>
-      </div>
-      <div class="nav">
-        <a href="tools.html" class="nav-link">Tools</a>
-        <a href="books.html" class="nav-link">Books</a>
-      </div>
-    </nav>
+<div class="site-wrapper">
 
-    <!-- Main Content -->
-    <main class="content">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+  <h2>Bee Committee</h2>
+  <ul class="sidebar-nav">
+    <li><a href="index.html" class="nav-link active">Homepage</a></li>
+    <li><a href="tools.html" class="nav-link">Tools For Beekeeping</a></li>
+    <li><a href="books.html" class="nav-link">Books For Beekeeping</a></li>
+  </ul>
+</nav>
 
-      <!-- Hero / Header -->
-      <header class="hero">
-        <img src="images/2eaff628-c44a-4ad6-97ca-9215d16b7b7e.jpg" alt="Bee Club Logo" class="header-photo">
-      </header>
 
-      <!-- Welcome Section -->
-      <section id="welcome">
-        <h2>Welcome</h2>
-        <p>Welcome to the New Buffalo Bee Committee — a neighborhood group focused on responsible beekeeping, pollinator education, and community support. Explore the site to learn about tools, reading, and how to get involved.</p>
-      </section>
+  <!-- Main Content -->
+  <main class="main-content">
 
-      <!-- Community Posts Section -->
-      <section class="community-posts">
-        <h2>Community Posts</h2>
-
-        <div class="post">
-          <h3>Spring Hive Maintenance Tips</h3>
-          <p>Check your hives weekly during spring to ensure healthy colonies...</p>
-        </div>
-
-        <div class="post">
-          <h3>Upcoming Bee Workshop</h3>
-          <p>Join us on April 20th for a hands-on workshop on hive care...</p>
-        </div>
-
-      </section>
-
-      <!-- Contact & Meetings -->
-      <section class="contact-meetings">
-        <h2>Contact & Meetings</h2>
-        <p><strong>Meetings:</strong> Second Tuesday of each month, 6:30 PM — New Buffalo Community Center (check our updates).</p>
-        <p><strong>Contact:</strong> <a href="mailto:info@newbuffalobee.org">info@newbuffalobee.org</a></p>
-      </section>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <small>© New Buffalo Bee Committee — built with ❤️</small>
-      </footer>
-    </main>
+    <!-- Header -->
+   <div class="header-wrapper">
+  <img src="images/2eaff628-c44a-4ad6-97ca-9215d16b7b7e.jpg" alt="Bee Club Logo" class="header-photo">
+  <div class="header-text-box">
+    <h1>New Buffalo Bee Committee</h1>
+    <h2>Welcome!</h2>
+    <p> Join the New Buffalo Bee Committee To Learn About How To Care For Bees in Our Community, Become A Beekeeper, and Foster Natural Biodiversity. Click The Links To Discover Learning Resources!</p>
   </div>
+</div>
 
-  <!-- Firebase-connected script -->
-  <script type="module" src="script.js"></script>
+    <!-- Community Posts -->
+  
+ <section class="community-posts">
+  <h2>Community Posts</h2>
+  <form id="postForm" class="post-form">
+    <textarea id="postText" placeholder="Share a post..." required></textarea>
+    <input type="file" id="postImage" accept="image/*">
+    <div class="form-actions">
+      <button type="submit" class="btn primary">Post</button>
+    </div>
+  </form>
+  <div id="postsList" class="posts-list"></div>
+</section>
+
+<section class="contact-card">
+  <h2>Contact & Meetings</h2>
+  <p><strong>Meetings:</strong> Virtually on Zoom and at NB Library (unless otherwise noted)</p>
+  <p>Monthly, on the second Thursday 6pm ET
+From February - October</p>
+  <p><strong>Contact:</strong> <a href="mailto:ava.maarie@yahoo.com">ava.maarie@yahoo.com</a></p>
+  <p><p><strong>Facebook Group:</strong> 
+     <a href="https://www.facebook.com/share/g/1JsJ17SrM4/" target="_blank" rel="noopener noreferrer">
+    Join our Facebook group @New Buffalo Michigan Bee Committee
+  </a>
+  </p>
+</section>
+
+<section class="bottom-images-row">
+  <img src="images/cc1c2ea1-252b-4f86-b5f5-62e7de35e84d.jpg" alt="Hive 1" class="bottom-image">
+  <img src="images/4a92ddb1-1bfe-4e84-a6ca-43c00b453493.jpg" alt="Hive 2" class="bottom-image">
+  <img src="images/e1a6072e-2b3f-4e26-a310-c0d115dfcacd.jpg" alt="Hive 3" class="bottom-image">
+</section>
+
+    <footer class="footer">
+      <small>© New Buffalo Bee Committee — Think To The Future</small>
+    </footer>
+  </main>
+</div>
+
+<script type="module" src="script.js"></script>
 </body>
 </html>

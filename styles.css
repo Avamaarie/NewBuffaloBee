@@ -1,142 +1,206 @@
-body {
-  background-color: pink;
-}
-
 :root { 
-  --honey:#d99a00;
-  --honey-dark:#c07f00;
-  --tan:#f6e9d6;
-  --text:#2a2a2a;
-  --muted:#6a6a6a;
-  --sidebar-width:25%;
-  --radius:12px;
-  --max-content-width:1100px;
-  --font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+  --honey: #d99a00;
+  --honey-dark: #c07f00;
+  --tan: #f6e9d6;
+  --text: #2a2a2a;
+  --muted: #6a6a6a;
+  --sidebar-width: 140px;
+  --radius: 12px;
+  --max-content-width: 1100px;
+  --font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
-/* Global */
-* { box-sizing:border-box; }
-html,body { height:100%; }
-body {
-  margin:0;
-  font-family:var(--font-family);
-  color:var(--text);
-  background:linear-gradient(180deg,var(--tan),#fff);
-  -webkit-font-smoothing:antialiased;
-  cursor:url('images/bee_cursor_preview.png'), url('images/bee_cursor.ico') 31 0, auto;
-}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; font-family: var(--font-family); color: var(--text); background: linear-gradient(180deg, var(--tan), #fff); -webkit-font-smoothing: antialiased; cursor: url('images/bee_cursor_preview.png'), url('images/bee_cursor.ico') 31 0, auto; }
 
-.site-wrapper {
-  display:flex;
-  min-height:100vh;
-  max-width:1400px;
-  margin:0 auto;
-  gap:24px;
-}
+.site-wrapper { display: flex; min-height: 100vh; max-width: 1400px; margin: 0 auto; gap: 24px; }
 
 /* Sidebar */
+
 .sidebar {
-  width:var(--sidebar-width);
-  min-width:210px;
-  background:var(--honey);
-  color:white;
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  border-radius:var(--radius);
-  box-shadow: 2px 4px 12px rgba(0,0,0,0.08);
-}
-.sidebar-brand h1 { margin:0; line-height:1.05; font-weight:700; font-size:20px; }
-.sidebar .accent { font-weight:600; }
-
-/* Nav */
-.nav { margin-top:18px; display:flex; flex-direction:column; gap:8px; }
-.nav-link {
-  text-decoration:none;
-  padding:12px 10px;
-  border-radius:8px;
-  display:block;
-  color:rgba(255,255,255,0.95);
-  font-weight:600;
-  background: rgba(255,255,255,0.08);
-  border-left: 4px solid transparent;
-  transition: 0.3s;
-}
-.nav-link:hover, .nav-link:focus { 
-  background: rgba(255,255,255,0.15); 
-  outline:none; 
-  border-left-color: var(--honey-dark);
-}
-.nav-link.active { background:rgba(255,255,255,0.18); }
-
-/* Content */
-.content {
-  padding:26px;
-  width:calc(75% - 24px);
-  max-width:var(--max-content-width);
-}
-
-/* Hero / Header */
-.hero {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 400px;
-  margin-bottom: 24px;
-  position: relative;
-}
-
-.header-photo {
-  width: 400px;
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  border: 3px solid var(--honey-dark);
-}
-
-/* Sections */
-section {
-  position: relative;
-  margin-bottom: 24px;
+  width: 150px; /* or your desired width */
+  min-width: 150px;
+  background: var(--honey) url('images/honeycomb.jpg') repeat;
+  color: white;
   padding: 20px;
   border-radius: var(--radius);
-  background: var(--tan);
-  border: 2px solid var(--honey-dark);
-}
-section::before {
-  content: '';
-  position: absolute;
-  top: -6px; left: -6px; right: -6px; bottom: -6px;
-  border: 2px dashed var(--honey);
-  border-radius: calc(var(--radius) + 6px);
-  pointer-events: none;
-  z-index: -1;
 }
 
-/* Community Posts */
-.post {
-  border-radius:var(--radius);
-  padding:16px;
-  border:1px solid var(--honey-dark);
-  background: linear-gradient(180deg,#fff8e0,#fff4b3);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  position: relative;
+.sidebar h2 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a:focus {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-nav a.active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* Header */
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  
+}
+.header-wrapper img.header-photo {
+  width: 250px;       /* increase this to make logo bigger */
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;     /* prevents it from shrinking inside flex */
+}
+
+.header-text-box {
+  flex: 1;
+  background: var(--honey);
+  padding: 20px;
+  border-radius: var(--radius);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('images/honeycomb.png');
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.header-text-box h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin: 0 0 8px 0;
+}
+
+.header-text-box h2 {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 4px 0;
+}
+
+.header-text-box p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+}
+
+
+/* Content */
+.main-content {
+  flex: 1;
+  max-width: var(--max-content-width);
+}
+
+/* Community posts */
+.post-form {
   margin-bottom: 16px;
 }
 
+.post-form textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e5e5e5; font-family: inherit; resize: vertical; }
+
+.post-form input[type=file] { margin-top: 6px; }
+
+.form-actions { display: flex; gap: 8px; margin-top: 12px; align-items: center; }
+
+.btn { padding: 8px 12px; border-radius: 8px; border: 0; cursor: pointer; font-weight: 600; }
+.btn.primary { background: var(--honey-dark); color: white; }
+
+.posts-list { display: flex; flex-direction: column; gap: 12px; }
+
+.post-card { background: linear-gradient(180deg, #fff, #fffaf3); border-radius: var(--radius); padding: 12px; border: 1px solid #f0e6d2; }
+
+.post-card img { max-width: 100%; margin-top: 8px; border-radius: 8px; }
+
+.reply-section { margin-top: 8px; padding-left: 12px; border-left: 2px dashed #f0d18a; }
+
+.reply-card { background: #fffdf6; border-radius: 8px; padding: 6px; margin-top: 4px; }
+
 /* Footer */
-.footer { color:var(--muted); text-align:center; margin-top:8px; }
+.footer { text-align: center; margin-top: 16px; color: var(--muted); }
 
 /* Responsive */
-@media (max-width:900px) {
-  .site-wrapper { flex-direction:column; }
-  .sidebar {
-    width:100%; min-width:auto; flex-direction:row;
-    align-items:center; gap:12px; padding:12px;
-  }
-  .sidebar-brand { flex:1; }
-  .nav { flex-direction:row; gap:6px; overflow:auto; }
-  .content { width:100%; padding:12px; }
-  .header-photo { width:300px; height:auto; margin:0 auto; display:block; }
+@media (max-width: 900px) {
+  .site-wrapper { flex-direction: column; }
+  .sidebar { width: 100%; flex-direction: row; justify-content: space-around; }
+  .header-wrapper { flex-direction: column; align-items: flex-start; }
+  .header-photo { width: 100%; height: auto; }
+}
+
+/* Contact & Meetings */
+.contact-card {
+  background: #fffaf3;
+  border: 1px solid #f0e6d2;
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-top: 24px;
+}
+
+.contact-card p { margin: 6px 0; font-size: 14px; }
+.contact-card strong { font-weight: 600; }
+
+/* Post replies adjustments */
+.reply-text {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #e5e5e5;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.reply-btn {
+  margin-top: 4px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+.bottom-images-row {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+  flex-wrap: wrap; /* allows third image to wrap */
+  justify-content: flex-start;
+}
+
+.bottom-images-row img:first-child {
+  flex: 2;          /* first image wider */
+  max-width: 60%;
+}
+
+.bottom-images-row img:nth-child(2) {
+  flex: 1;
+  max-width: 30%;
+}
+
+.bottom-images-row img:nth-child(3) {
+  flex: 1 1 30%;    /* allows it to wrap to next row */
+}
+
+.bottom-images-row img {
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  height: auto;
 }
