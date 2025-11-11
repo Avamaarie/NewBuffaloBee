@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New Buffalo Bee Committee</title>
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="site-wrapper">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand">
+        <h1>New Buffalo<br><span class="accent">Bee Committee</span></h1>
+      </div>
+
+      <nav class="nav" role="navigation" aria-label="Main menu">
+        <a href="index.html" class="nav-link active">🏠 Home</a>
+        <a href="tools.html" class="nav-link">🧰 Tools</a>
+        <a href="books.html" class="nav-link">📚 Books</a>
+        <a href="#" class="nav-link">💬 Community</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <small>New Buffalo, MI</small>
+        <button id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+      </div>
+    </aside>
+
+    <main class="content" id="main">
+      <!-- Header / decorative images -->
+      <header class="hero">
+        <div class="hero-left">
+          <img src="images/2eaff628-c44a-4ad6-97ca-9215d16b7b7e.jpg" alt="Header placeholder" class="header-photo" />
+        </div>
+        <div class="hero-right">
+          <div class="mini-photos">
+            <img src="images/cc1c2ea1-252b-4f86-b5f5-62e7de35e84d.jpg" alt="Decorative photo 1" />
+            <img src="images/e1a6072e-2b3f-4e26-a310-c0d115dfcacd.jpg" alt="Decorative photo 2" />
+            <img src="images/4a92ddb1-1bfe-4e84-a6ca-43c00b453493.jpg" alt="Decorative photo 3" />
+          </div>
+        </div>
+      </header>
+
+      <!-- Welcome -->
+      <section id="welcome" class="card">
+        <h2>Welcome</h2>
+        <p>Welcome to the New Buffalo Bee Committee — a neighborhood group focused on responsible beekeeping, pollinator education, and community support. Explore the site to learn about tools, reading, and how to get involved.</p>
+      </section>
+
+      <!-- Community / Comments (interactive) -->
+      <section id="community" class="card">
+        <h2>Community posts</h2>
+        <p class="muted">Share photos, ask questions, or post updates. Replies appear under the post.</p>
+
+        <form id="postForm" class="post-form" aria-label="Create a new post">
+          <label for="postText">Your message</label>
+          <textarea id="postText" rows="3" placeholder="Write something helpful or fun..."></textarea>
+
+          <label for="postImage">Attach image (optional)</label>
+          <input type="file" id="postImage" accept="image/*" />
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Post</button>
+            <button type="button" id="clearPosts" class="btn">Clear local posts</button>
+          </div>
+        </form>
+
+        <div id="postsList" class="posts-list" aria-live="polite"></div>
+      </section>
+
+      <!-- Contact & Meetings -->
+      <section id="contact" class="card">
+        <h2>Contact & Meetings</h2>
+        <p><strong>Meetings:</strong> Second Tuesday of each month, 6:30 PM — New Buffalo Community Center (check our updates).</p>
+        <p><strong>Contact:</strong> <a href="mailto:info@newbuffalobee.org">info@newbuffalobee.org</a></p>
+      </section>
+
+      <footer class="footer">
+        <small>© New Buffalo Bee Committee — built with ❤️</small>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
