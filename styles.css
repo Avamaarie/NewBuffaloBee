@@ -1,3 +1,7 @@
+body {
+  background-color: pink;
+}
+
 :root { 
   --honey:#d99a00;
   --honey-dark:#c07f00;
