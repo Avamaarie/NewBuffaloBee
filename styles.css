@@ -282,9 +282,10 @@ html, body { height: 100%; margin: 0; font-family: var(--font-family); color: va
   border-radius: 12px;
   border: 2px solid #e8dd8b;
   object-fit: cover;
-  position: relative;
-  left: 400px;  
-  top: -20px; 
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
 }
 
 /*Books*/

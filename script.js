@@ -64,7 +64,10 @@ onSnapshot(postsQuery, (snapshot) => {
     const div = document.createElement("div");
     div.classList.add("post-card");
     div.innerHTML = `
-      <div class="meta">${post.timestamp?.toDate ? new Date(post.timestamp.toDate()).toLocaleString() : ""}</div>
+      <div class="meta">
+  ${post.timestamp ? post.timestamp.toDate().toLocaleString() : ""}
+</div>
+
       <p>${post.text}</p>
       ${post.imageUrl ? `<img src="${post.imageUrl}" class="post-image" alt="Post image" />` : ""}
       <div class="replies" id="replies-${postId}"></div>
