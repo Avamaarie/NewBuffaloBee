@@ -266,12 +266,14 @@ html, body { height: 100%; margin: 0; font-family: var(--font-family); color: va
 }
 
 .photo-row img {
-  max-width: 30%;
-  height: auto;
+  width: 30%;
+  height: 250px;
+  object-fit: contain;
   border-radius: 12px;
-  border: 2px solid #e8dd8b;
-  object-fit: cover;
-  position: relative;
+ 
+  background-color: transparent;
+
+
   
 }
 .photo-row-2 img {
@@ -281,35 +283,52 @@ html, body { height: 100%; margin: 0; font-family: var(--font-family); color: va
   border: 2px solid #e8dd8b;
   object-fit: cover;
   position: relative;
-  left: 600px;  
-  top: 300px; 
+  left: 400px;  
+  top: -20px; 
 }
-.books-container {
-   width: 300px;       /* keeps fixed width */
-  padding: 25px;
-  background: rgba(255, 255, 255, 0); /* fully transparent */
-  border: 3px solid #e8c572;  /* keep honey border */
-  border-radius: 22px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+
+/*Books*/
+/* Shared two-column layout */
+.two-column {
   display: flex;
-  align-items: flex-start; /* aligns tops of both sections */
-  gap: 2rem; /* space between book list and resource box */
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  justify-content: center;
+  gap: 50px;          /* space between boxes */
+  flex-wrap: wrap;    /* stack on mobile */
+  margin-top: 40px;
 }
 
-.books-content {
-  flex: 1; /* takes remaining space */
-  min-width: 250px;
-}
-
-.resource-box {
-  position: relative;
-  left: 500px;  
-  top: -100px;     /* move down or up if needed */
-  width: 300px; /* fixed width for the box */
+/* Shared container box style */
+.books-container,
+.tools-box {
+  width: 500px;                 /* WIDE — not skinny */
   padding: 25px;
   background: rgba(255, 255, 255, 0);
   border: 3px solid #e8c572;
   border-radius: 22px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* Content inside */
+.books-content,
+.tools-content {
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* Lists */
+.resource-list,
+.tools-list {
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.resource-list a,
+.tools-list a {
+  color: #996600;
+  text-decoration: none;
+}
+
+.resource-list a:hover,
+.tools-list a:hover {
+  text-decoration: underline;
 }
