@@ -20,7 +20,7 @@ html, body { height: 100%; margin: 0; font-family: var(--font-family); color: va
 .sidebar {
   width: 150px; /* or your desired width */
   min-width: 150px;
-  background: var(--honey) url('images/honeycomb.jpg') repeat;
+  background: var(--honey) url('images/[CITYPNG.COM]Honeycomb Orange & White Abstract Background PNG - 1500x1500.png') repeat;
   color: white;
   padding: 20px;
   border-radius: var(--radius);
@@ -113,29 +113,125 @@ html, body { height: 100%; margin: 0; font-family: var(--font-family); color: va
   max-width: var(--max-content-width);
 }
 
-/* Community posts */
-.post-form {
-  margin-bottom: 16px;
+/* COMMUNITY POSTS — Honey Bulletin Style */
+
+.community-posts {
+  width: 100%;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fffdf9; /* soft warm white */
+  border: 3px solid #e8c572; /* honey-gold border */
+  border-radius: 22px; /* rounded container */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  font-family: "Poppins", sans-serif;
 }
 
-.post-form textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #e5e5e5; font-family: inherit; resize: vertical; }
+.community-posts h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #7a5b00; /* deep honey header */
+  margin-bottom: 20px;
+}
 
-.post-form input[type=file] { margin-top: 6px; }
+/* Posting Form */
+.post-form textarea {
+  width: 100%;
+  height: 110px;
+  padding: 12px;
+  resize: vertical;
+  border-radius: 14px;
+  border: 2px solid #e6d7a5; /* warm beige border */
+  background: #fffcf3;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
 
-.form-actions { display: flex; gap: 8px; margin-top: 12px; align-items: center; }
+.post-form input[type="file"] {
+  margin: 10px 0;
+}
 
-.btn { padding: 8px 12px; border-radius: 8px; border: 0; cursor: pointer; font-weight: 600; }
-.btn.primary { background: var(--honey-dark); color: white; }
+.form-actions {
+  text-align: right;
+}
 
-.posts-list { display: flex; flex-direction: column; gap: 12px; }
+.btn.primary {
+  background-color: #e8c572; /* honey button */
+  color: #503f00;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+}
 
-.post-card { background: linear-gradient(180deg, #fff, #fffaf3); border-radius: var(--radius); padding: 12px; border: 1px solid #f0e6d2; }
+.btn.primary:hover {
+  background-color: #f0d489;
+}
 
-.post-card img { max-width: 100%; margin-top: 8px; border-radius: 8px; }
+/* Posts List Section */
+.posts-list {
+  margin-top: 25px;
+}
 
-.reply-section { margin-top: 8px; padding-left: 12px; border-left: 2px dashed #f0d18a; }
+/* Individual Post Card */
+.post-card {
+  background: #fffdf4;
+  border: 2px solid #ecd9a4;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
 
-.reply-card { background: #fffdf6; border-radius: 8px; padding: 6px; margin-top: 4px; }
+.post-card .meta {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #7e6a34;
+  margin-bottom: 8px;
+}
+
+.post-card img {
+  display: block;
+  max-width: 100%;
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 2px solid #ecd9a4;
+}
+
+/* Replies Section */
+.replies {
+  margin-top: 18px;
+  padding-left: 14px;
+  border-left: 4px solid #e8c572;
+}
+
+.reply-card {
+  background: #fff9ea;
+  border: 2px solid #e8c572;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.reply-card .meta {
+  font-size: 0.8rem;
+  color: #7e6a34;
+  margin-bottom: 5px;
+}
+
+.reply-text {
+  width: 100%;
+  height: 70px;
+  border-radius: 12px;
+  padding: 10px;
+  border: 2px solid #ecd9a4;
+  background: #fffcf3;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+}
 
 /* Footer */
 .footer { text-align: center; margin-top: 16px; color: var(--muted); }
@@ -160,47 +256,60 @@ html, body { height: 100%; margin: 0; font-family: var(--font-family); color: va
 .contact-card p { margin: 6px 0; font-size: 14px; }
 .contact-card strong { font-weight: 600; }
 
-/* Post replies adjustments */
-.reply-text {
-  width: 100%;
-  padding: 8px;
-  margin-top: 6px;
-  border-radius: 6px;
-  border: 1px solid #e5e5e5;
-  font-family: inherit;
-  resize: vertical;
-}
 
-.reply-btn {
-  margin-top: 4px;
-  padding: 6px 10px;
-  font-size: 0.9rem;
-}
-.bottom-images-row {
+.photo-row {
   display: flex;
-  gap: 12px;
-  margin: 24px 0;
-  flex-wrap: wrap; /* allows third image to wrap */
-  justify-content: flex-start;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+  margin-top: 25px;
 }
 
-.bottom-images-row img:first-child {
-  flex: 2;          /* first image wider */
-  max-width: 60%;
-}
-
-.bottom-images-row img:nth-child(2) {
-  flex: 1;
+.photo-row img {
   max-width: 30%;
-}
-
-.bottom-images-row img:nth-child(3) {
-  flex: 1 1 30%;    /* allows it to wrap to next row */
-}
-
-.bottom-images-row img {
-  border-radius: var(--radius);
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   height: auto;
+  border-radius: 12px;
+  border: 2px solid #e8dd8b;
+  object-fit: cover;
+  position: relative;
+  
+}
+.photo-row-2 img {
+  max-width: 30%;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #e8dd8b;
+  object-fit: cover;
+  position: relative;
+  left: 600px;  
+  top: 300px; 
+}
+.books-container {
+   width: 300px;       /* keeps fixed width */
+  padding: 25px;
+  background: rgba(255, 255, 255, 0); /* fully transparent */
+  border: 3px solid #e8c572;  /* keep honey border */
+  border-radius: 22px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: flex-start; /* aligns tops of both sections */
+  gap: 2rem; /* space between book list and resource box */
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.books-content {
+  flex: 1; /* takes remaining space */
+  min-width: 250px;
+}
+
+.resource-box {
+  position: relative;
+  left: 500px;  
+  top: -100px;     /* move down or up if needed */
+  width: 300px; /* fixed width for the box */
+  padding: 25px;
+  background: rgba(255, 255, 255, 0);
+  border: 3px solid #e8c572;
+  border-radius: 22px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
